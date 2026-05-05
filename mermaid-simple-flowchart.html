@@ -89,15 +89,15 @@
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="mermaid">
-graph TD
-    A[Inici del projecte] --> B{Tenim dades?}
-    B -- Sí --> C[Carregar dades GIS]
-    B -- No --> D[Recollir dades al camp]
-    D --> C
-    C --> E[Processar amb QGIS]
-    E --> F[Exportar mapa web]
-    F --> G[Publicar a la web]
-    G --> H[Fi]
+                    graph TD
+                        A[Inici del projecte] --> B{Tenim dades?}
+                        B -- Sí --> C[Carregar dades GIS]
+                        B -- No --> D[Recollir dades al camp]
+                        D --> C
+                        C --> E[Processar amb QGIS]
+                        E --> F[Exportar mapa web]
+                        F --> G[Publicar a la web]
+                        G --> H[Fi]
                     </div>
                 </div>
             </div>
@@ -162,6 +162,56 @@ graph TD
 
         <hr>
 
+        <!-- Més diagrames Mermaid -->
+        <section class="chart-section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-header">Més exemples de diagrames</h2>
+                    <p>Altres tipus de diagrames possibles amb <strong>Mermaid.js</strong>.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mermaid">
+                    graph TD
+                      A --- B
+                      B-->C[fa:fa-ban forbidden]
+                      B-->D(fa:fa-spinner);
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mermaid">
+                    graph TD
+                      A[Start] --> B{Is it?};
+                      B -- Yes --> C[OK];
+                      C --> D[Rethink];
+                      D --> B;
+                      B -- No ----> E[End];
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mermaid">
+                    flowchart TB
+                      c1-->a2
+                      subgraph one
+                        a1-->a2
+                      end
+                      subgraph two
+                        b1-->b2
+                      end
+                      subgraph three
+                        c1-->c2
+                      end
+                      one --> two
+                      three --> two
+                      two --> c2
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
         <!-- Footer -->
         <footer>
             <div class="row">
@@ -185,6 +235,13 @@ graph TD
     <!-- Chart.js i plugin WordCloud -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-wordcloud@4/build/index.umd.min.js"></script>
+
+    <!-- IMPORTANT: Per fer un disseny amb separació de responsabilitats (HTML, CSS i JS per separat) cal:
+     1. Esborrar el contingut de les etiquetes script que hi ha a continuació.
+     2. Afegir aquest contingut a un nou fitxer JavaScript a la carpeta js amb el nom
+     charts-flowcharts.js.
+     3 Finalment, cal afegir una etiqueta script al fitxer HTML per incloure el fitxer JavaScript:
+     <script src="js/charts-flowcharts.js"></script> -->
 
     <script>
         // ── Gràfic de barres ──────────────────────────────────────────
@@ -309,76 +366,4 @@ graph TD
     </script>
 
 </body>
-</html>
-
-        <!-- Content Row -->
-        <div class="row">
-            <!-- Diagram Column -->
-            <div class="col-md-4">
-                <!-- Embedded flowchart -->
-                <div class="mermaid">
-                graph TD
-                  A --- B
-                  B-->C[fa:fa-ban forbidden]
-                  B-->D(fa:fa-spinner);
-                </div>
-            </div>
-            <div class="col-md-4">
-                <!-- Embedded flowchart -->
-                <div class="mermaid">
-                graph TD
-                  A[Start] --> B{Is it?};
-                  B -- Yes --> C[OK];
-                  C --> D[Rethink];
-                  D --> B;
-                  B -- No ----> E[End];
-                </div>
-            </div>
-            
-            <div class="col-md-4">
-                <!-- Embedded flowchart -->
-                <div class="mermaid">
-                flowchart TB
-                  c1-->a2
-                  subgraph one
-                    a1-->a2
-                  end
-                  subgraph two
-                    b1-->b2
-                  end
-                  subgraph three
-                    c1-->c2
-                  end
-                  one --> two
-                  three --> two
-                  two --> c2
-                </div>
-            </div>
-            
-            
-        <!-- /.row -->
-
-        <hr>
-
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; WebGIS demo, 2021</p>
-                </div>
-            </div>
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-
-</body>
-
 </html>
