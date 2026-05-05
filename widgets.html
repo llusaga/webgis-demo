@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <title>WebGIS demo</title>
+    <meta name="description" content="Un exemple mímim de pàgina web amb mapes exportats de QGIS i altres widgets.">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/modern-business.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Demostració de projecte amb mapes i altres widgets</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mapes<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="map-with-simple-symbols.html">Mapa amb símbols simples</a>
+                            </li>
+                            <li>
+                                <a href="map-with-svg-symbols.html">Mapa amb símbols SVG</a>
+                            </li>
+                            <li>
+                                <a href="map-with-enriched-popups.html">Mapa amb <em>popups</em> enriquits</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Diagrames amb Mermaid.js <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="mermaid-simple-flowchart.html">Diagrames de fluxos</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="active">
+                    	<a href="widgets.html">Widgets</a>
+                    </li>                  
+                    
+                    <li>
+                    	<a href="faq.html">FAQ</a>
+                    </li>
+ 
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Mapa amb símbols simples
+                    <small>Símbols únics de QGIS</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="index.html">Inici</a></li>
+                    <li>Mapes</li>
+                    <li><a href="map-with-simple-symbols.html">Mapa amb símbols simples</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Content Row -->
+        <div class="row">
+            <!--Weather prediction Column -->
+            <div class="col-md-12">
+                <h2>Weather Prediction</h2>
+                <!-- Embedded Weather Prediction -->
+                <iframe src="https://www.meteoblue.com/es/tiempo/mapas/widget/tarragona_espa%c3%b1a_3108288?windAnimation=1&gust=1&satellite=1&cloudsAndPrecipitation=1&temperature=1&sunshine=1&extremeForecastIndex=1&geoloc=fixed&tempunit=C&lengthunit=metric&windunit=km%252Fh&zoom=9&autowidth=auto&user_key=ee079c4a5a16f99b&embed_key=a78336dca98bfec5&sig=a045dd335593c004e7419c56b6f341f486aadaa1e17772e10a485891b2ed570d" 
+                        frameborder="0" 
+                        scrolling="NO" 
+                        allowtransparency="true" 
+                        sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox" 
+                        style="width: 100%;height: 500px;border: 0;overflow: hidden;">
+                </iframe>
+                
+                <div>
+                <!-- DO NOT REMOVE THIS LINK -->
+                 <a href="https://www.meteoblue.com/es/tiempo/semana/index" target="_blank" rel="noopener">meteoblue</a>
+                </div>
+            </div>
+        </div>
+        
+        <hr>
+
+        <div class="row">
+            <!-- Calendar Column -->
+            <div class="col-md-12">
+                <h2>Calendar</h2>
+                <!-- Embedded Calendar -->
+                <iframe src="https://calendar.google.com/calendar/embed?src=33d4fef9e8dbf27be153cc7eb570b9b0ab70c2a446558ecdd913b84656f4fd02%40group.calendar.google.com&ctz=Europe%2FAmsterdam" 
+                        style="border: 0" 
+                        width="100%" 
+                        height="600" 
+                        frameborder="0" 
+                        scrolling="no">
+                </iframe>
+            </div>
+        </div>
+        
+        <hr>
+
+        <div class="row">
+            <!-- Form Column -->
+            <div class="col-md-12">
+                <h2>Form</h2>
+                <!-- Embedded Form -->
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScxoOS4RkjHNizXtcU8xVpynEzZ_1J4NEXiJEX_5Zhy6-etDg/viewform?embedded=true" 
+                        width="100%" 
+                        height="711" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0">
+                    S&#39;està carregant…
+                </iframe>
+            </div>
+        </div>
+        
+        <hr>
+
+        <div class="row">
+            <!-- Form Column -->
+            <div class="col-md-12">
+                <h2>Activitat Montsant</h2>
+                <!-- Embedded Form -->
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScxoOS4RkjHNizXtcU8xVpynEzZ_1J4NEXiJEX_5Zhy6-etDg/viewform?usp=header" target="_blank">
+                <button class="btn btn-success">Inscriu-te</button>
+                </a>    
+            </div>
+        </div>
+        
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; WebGIS demo, 2021</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>
