@@ -1,22 +1,28 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="ca" class="no-js">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="canonical" href="https://html5-templates.com/" />
-    <title>WebGIS demo</title>
-    <meta name="description" content="Un exemple mímim de pàgina web amb mapes exportats de QGIS i altres widgets.">
+    <title>Diagrames i gràfics | WebGIS demo</title>
+    <meta name="description" content="Exemples de diagrames de flux amb Mermaid.js i gràfics amb Chart.js.">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/modern-business.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    
-    
-    <!-- Configuració de Mermaid.js -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({startOnLoad:true});</script>
-    <script>mermaid.flowchartConfig = {width: 100%}</script>
-
+    <style>
+        .chart-container {
+            position: relative;
+            margin: 20px auto;
+            max-width: 700px;
+        }
+        .mermaid {
+            text-align: center;
+            margin: 20px 0;
+        }
+        section.chart-section {
+            margin-bottom: 50px;
+        }
+    </style>
 </head>
 
 <body>
@@ -24,7 +30,6 @@
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -34,41 +39,26 @@
                 </button>
                 <a class="navbar-brand" href="index.html">Demostració de projecte amb mapes i altres widgets</a>
             </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mapes<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a href="map-with-simple-symbols.html">Mapa amb símbols simples</a>
-                            </li>
-                            <li>
-                                <a href="map-with-svg-symbols.html">Mapa amb símbols SVG</a>
-                            </li>
-                            <li>
-                                <a href="map-with-enriched-popups.html">Mapa amb <em>popups</em> enriquits</a>
-                            </li>
-
+                            <li><a href="map-with-simple-symbols.html">Mapa amb símbols simples</a></li>
+                            <li><a href="map-with-svg-symbols.html">Mapa amb símbols SVG</a></li>
+                            <li><a href="map-with-enriched-popups.html">Mapa amb <em>popups</em> enriquits</a></li>
                         </ul>
                     </li>
                     <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Diagrames amb Mermaid.js <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Diagrames i gràfics <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li class="active">
-                                <a href="mermaid-simple-flowchart.html">Diagrama de fluxos</a>
-                            </li>
+                            <li class="active"><a href="mermaid-simple-flowchart.html">Diagrama de fluxos i gràfics</a></li>
                         </ul>
-                    </li>                    
-                    <li>
-                    	<a href="faq.html">FAQ</a>
                     </li>
- 
+                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
     </nav>
 
     <!-- Page Content -->
@@ -77,17 +67,249 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">Diagrama de fluxos 
-                    <small>Exemple super-senzill amb Mermaid.js</small>
+                <h1 class="page-header">Diagrames i gràfics
+                    <small>Mermaid.js i Chart.js</small>
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="index.html">Inici</a></li>
-                    <li>Diagrames</li>
-                    <li class="active"><a href="mermaid-simple-flowchart.html">Diagrames de fluxos</a></li>
+                    <li class="active">Diagrames i gràfics</li>
                 </ol>
             </div>
         </div>
         <!-- /.row -->
+
+        <!-- Mermaid Flowchart -->
+        <section class="chart-section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-header">Diagrama de fluxos</h2>
+                    <p>Exemple de diagrama de fluxos generat amb <strong>Mermaid.js</strong>.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="mermaid">
+graph TD
+    A[Inici del projecte] --> B{Tenim dades?}
+    B -- Sí --> C[Carregar dades GIS]
+    B -- No --> D[Recollir dades al camp]
+    D --> C
+    C --> E[Processar amb QGIS]
+    E --> F[Exportar mapa web]
+    F --> G[Publicar a la web]
+    G --> H[Fi]
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Bar Chart -->
+        <section class="chart-section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-header">Gràfic de barres</h2>
+                    <p>Nombre de punts d'interès per categoria, generat amb <strong>Chart.js</strong>.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="chart-container">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Donut Chart -->
+        <section class="chart-section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-header">Gràfic de donuts</h2>
+                    <p>Distribució de les rutes per dificultat, generat amb <strong>Chart.js</strong>.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3">
+                    <div class="chart-container">
+                        <canvas id="donutChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Word Cloud -->
+        <section class="chart-section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-header">Núvol de paraules</h2>
+                    <p>Termes més freqüents en les descripcions de les rutes, generat amb <strong>Chart.js WordCloud</strong>.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <div class="chart-container" style="max-width:900px;height:400px;">
+                        <canvas id="wordCloud"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; WebGIS, 2021</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Scripts -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+
+    <!-- Chart.js i plugin WordCloud -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-wordcloud@4/build/index.umd.min.js"></script>
+
+    <script>
+        // ── Gràfic de barres ──────────────────────────────────────────
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Senderisme', 'Ciclisme', 'Patrimoni', 'Mirador', 'Platja', 'Gastronomia'],
+                datasets: [{
+                    label: 'Nombre de punts d\'interès',
+                    data: [24, 18, 12, 9, 15, 7],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(153, 102, 255, 0.7)',
+                        'rgba(255, 159, 64, 0.7)',
+                        'rgba(255, 99, 132, 0.7)'
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'top' },
+                    title: {
+                        display: true,
+                        text: 'Punts d\'interès per categoria'
+                    }
+                },
+                scales: {
+                    y: { beginAtZero: true, ticks: { stepSize: 5 } }
+                }
+            }
+        });
+
+        // ── Gràfic de donuts ──────────────────────────────────────────
+        const donutCtx = document.getElementById('donutChart').getContext('2d');
+        new Chart(donutCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Fàcil', 'Moderat', 'Difícil', 'Molt difícil'],
+                datasets: [{
+                    data: [40, 30, 20, 10],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.8)',
+                        'rgba(255, 206, 86, 0.8)',
+                        'rgba(255, 159, 64, 0.8)',
+                        'rgba(255, 99, 132, 0.8)'
+                    ],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { position: 'right' },
+                    title: {
+                        display: true,
+                        text: 'Distribució de rutes per dificultat (%)'
+                    }
+                }
+            }
+        });
+
+        // ── Núvol de paraules ─────────────────────────────────────────
+        const words = [
+            { key: 'GIS', value: 95 },
+            { key: 'QGIS', value: 88 },
+            { key: 'mapa', value: 80 },
+            { key: 'ruta', value: 75 },
+            { key: 'senderisme', value: 70 },
+            { key: 'dades', value: 65 },
+            { key: 'territori', value: 60 },
+            { key: 'natura', value: 55 },
+            { key: 'cartografia', value: 50 },
+            { key: 'bosc', value: 45 },
+            { key: 'muntanya', value: 42 },
+            { key: 'web', value: 40 },
+            { key: 'Leaflet', value: 38 },
+            { key: 'topografia', value: 35 },
+            { key: 'GPS', value: 33 },
+            { key: 'geodades', value: 30 },
+            { key: 'ciclisme', value: 28 },
+            { key: 'paisatge', value: 25 },
+            { key: 'mirador', value: 22 },
+            { key: 'patrimoni', value: 20 }
+        ];
+
+        const wcCtx = document.getElementById('wordCloud').getContext('2d');
+        new Chart(wcCtx, {
+            type: 'wordCloud',
+            data: {
+                labels: words.map(w => w.key),
+                datasets: [{
+                    label: 'Freqüència',
+                    data: words.map(w => w.value),
+                    color: words.map(() => `hsl(${Math.floor(Math.random() * 360)}, 60%, 40%)`)
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Termes més freqüents a les descripcions'
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
 
         <!-- Content Row -->
         <div class="row">
