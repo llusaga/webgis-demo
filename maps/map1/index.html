@@ -28,7 +28,6 @@
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
         <script src="js/L.Control.Layers.Tree.min.js"></script>
-        <script src="js/multi-style-layer.js"></script>
         <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
         <script src="js/leaflet-hash.js"></script>
@@ -38,14 +37,11 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet.photon.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/track_1.js"></script>
-        <script src="data/parking_2.js"></script>
-        <script src="data/greenareas_3.js"></script>
-        <script src="data/climateshelter_4.js"></script>
+        <script src="data/climateshelter_1.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[41.101882546779585,1.1467318066561263],[41.10358527572746,1.1490666703634855]]);
+        }).fitBounds([[41.102048865034966,1.1462055436632521],[41.10402855738065,1.1489389577392852]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -126,99 +122,20 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_GoogleSatelliteHybrid_0');
-        map.getPane('pane_GoogleSatelliteHybrid_0').style.zIndex = 400;
-        var layer_GoogleSatelliteHybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
-            pane: 'pane_GoogleSatelliteHybrid_0',
+        map.createPane('pane_PNOASpain_0');
+        map.getPane('pane_PNOASpain_0').style.zIndex = 400;
+        var layer_PNOASpain_0 = L.tileLayer('http://www.ign.es/wmts/pnoa-ma?request=GetTile&service=WMTS&VERSION=1.0.0&Layer=OI.OrthoimageCoverage&Style=default&Format=image/png&TileMatrixSet=GoogleMapsCompatible&TileMatrix={z}&TileRow={y}&TileCol={x}', {
+            pane: 'pane_PNOASpain_0',
             opacity: 1.0,
-            attribution: '',
+            attribution: '<a href="">PNOA</a>',
             minZoom: 1,
             maxZoom: 28,
             minNativeZoom: 0,
-            maxNativeZoom: 19
+            maxNativeZoom: 20
         });
-        layer_GoogleSatelliteHybrid_0;
-        map.addLayer(layer_GoogleSatelliteHybrid_0);
-        function pop_track_1(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['qc_id'] !== null ? autolinker.link(String(feature.properties['qc_id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['name'] !== null ? autolinker.link(String(feature.properties['name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['cmt'] !== null ? autolinker.link(String(feature.properties['cmt']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['desc'] !== null ? autolinker.link(String(feature.properties['desc']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['src'] !== null ? autolinker.link(String(feature.properties['src']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['link1_href'] !== null ? autolinker.link(String(feature.properties['link1_href']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['link1_text'] !== null ? autolinker.link(String(feature.properties['link1_text']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['link1_type'] !== null ? autolinker.link(String(feature.properties['link1_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['link2_href'] !== null ? autolinker.link(String(feature.properties['link2_href']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['link2_text'] !== null ? autolinker.link(String(feature.properties['link2_text']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['link2_type'] !== null ? autolinker.link(String(feature.properties['link2_type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['number'] !== null ? autolinker.link(String(feature.properties['number']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['type'] !== null ? autolinker.link(String(feature.properties['type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_track_1_0() {
-            return {
-                pane: 'pane_track_1',
-                opacity: 1,
-                color: 'rgba(255,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 4.0,
-                fillOpacity: 0,
-                interactive: false,
-            }
-        }
-        map.createPane('pane_track_1');
-        map.getPane('pane_track_1').style.zIndex = 401;
-        map.getPane('pane_track_1').style['mix-blend-mode'] = 'normal';
-        var layer_track_1 = new L.geoJson(json_track_1, {
-            attribution: '',
-            interactive: false,
-            dataVar: 'json_track_1',
-            layerName: 'layer_track_1',
-            pane: 'pane_track_1',
-            onEachFeature: pop_track_1,
-            style: style_track_1_0,
-        });
-        bounds_group.addLayer(layer_track_1);
-        map.addLayer(layer_track_1);
-        function pop_parking_2(feature, layer) {
+        layer_PNOASpain_0;
+        map.addLayer(layer_PNOASpain_0);
+        function pop_climateshelter_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['html_popup'] !== null ? autolinker.link(String(feature.properties['html_popup']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -231,146 +148,38 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_parking_2_0() {
+        function style_climateshelter_1_0() {
             return {
-                pane: 'pane_parking_2',
+                pane: 'pane_climateshelter_1',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/parking_2.svg',
-            iconSize: [26.599999999999998, 26.599999999999998]
+            iconUrl: 'markers/climateshelter_1.svg',
+            iconSize: [34.199999999999996, 34.199999999999996]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_parking_2');
-        map.getPane('pane_parking_2').style.zIndex = 402;
-        map.getPane('pane_parking_2').style['mix-blend-mode'] = 'normal';
-        var layer_parking_2 = new L.geoJson(json_parking_2, {
+        map.createPane('pane_climateshelter_1');
+        map.getPane('pane_climateshelter_1').style.zIndex = 401;
+        map.getPane('pane_climateshelter_1').style['mix-blend-mode'] = 'normal';
+        var layer_climateshelter_1 = new L.geoJson(json_climateshelter_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_parking_2',
-            layerName: 'layer_parking_2',
-            pane: 'pane_parking_2',
-            onEachFeature: pop_parking_2,
+            dataVar: 'json_climateshelter_1',
+            layerName: 'layer_climateshelter_1',
+            pane: 'pane_climateshelter_1',
+            onEachFeature: pop_climateshelter_1,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_parking_2_0(feature));
+                return L.marker(latlng, style_climateshelter_1_0(feature));
             },
         });
-        bounds_group.addLayer(layer_parking_2);
-        map.addLayer(layer_parking_2);
-        function pop_greenareas_3(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['html_popup'] !== null ? autolinker.link(String(feature.properties['html_popup']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_greenareas_3_0() {
-            return {
-                pane: 'pane_greenareas_3',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/greenareas_3.svg',
-            iconSize: [26.599999999999998, 26.599999999999998]
-        }),
-                interactive: true,
-            }
-        }
-        function style_greenareas_3_1() {
-            return {
-                pane: 'pane_greenareas_3',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/greenareas_3.svg',
-            iconSize: [23.94, 23.94]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane_greenareas_3');
-        map.getPane('pane_greenareas_3').style.zIndex = 403;
-        map.getPane('pane_greenareas_3').style['mix-blend-mode'] = 'normal';
-        var layer_greenareas_3 = new L.geoJson.multiStyle(json_greenareas_3, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_greenareas_3',
-            layerName: 'layer_greenareas_3',
-            pane: 'pane_greenareas_3',
-            onEachFeature: pop_greenareas_3,
-            pointToLayers: [function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_greenareas_3_0(feature));
-            },function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_greenareas_3_1(feature));
-            },
-        ]});
-        bounds_group.addLayer(layer_greenareas_3);
-        map.addLayer(layer_greenareas_3);
-        function pop_climateshelter_4(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['html_popup'] !== null ? autolinker.link(String(feature.properties['html_popup']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_climateshelter_4_0() {
-            return {
-                pane: 'pane_climateshelter_4',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/climateshelter_4.svg',
-            iconSize: [26.599999999999998, 26.599999999999998]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane_climateshelter_4');
-        map.getPane('pane_climateshelter_4').style.zIndex = 404;
-        map.getPane('pane_climateshelter_4').style['mix-blend-mode'] = 'normal';
-        var layer_climateshelter_4 = new L.geoJson(json_climateshelter_4, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_climateshelter_4',
-            layerName: 'layer_climateshelter_4',
-            pane: 'pane_climateshelter_4',
-            onEachFeature: pop_climateshelter_4,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_climateshelter_4_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_climateshelter_4);
-        map.addLayer(layer_climateshelter_4);
+        bounds_group.addLayer(layer_climateshelter_1);
+        map.addLayer(layer_climateshelter_1);
         const url = {"Nominatim OSM": "https://nominatim.openstreetmap.org/search?format=geojson&addressdetails=1&",
         "France BAN": "https://api-adresse.data.gouv.fr/search/?"}
         var photonControl = L.control.photon({
@@ -425,11 +234,8 @@
             }
         });
         var overlaysTree = [
-            {label: '<img src="legend/climateshelter_4.png" /> climate-shelter', layer: layer_climateshelter_4},
-            {label: '<img src="legend/greenareas_3.png" /> green-areas', layer: layer_greenareas_3},
-            {label: '<img src="legend/parking_2.png" /> parking', layer: layer_parking_2},
-            {label: '<img src="legend/track_1.png" /> track', layer: layer_track_1},
-            {label: "Google Satellite Hybrid", layer: layer_GoogleSatelliteHybrid_0},]
+            {label: '<img src="legend/climateshelter_1.png" /> climate-shelter', layer: layer_climateshelter_1},
+            {label: "PNOA Spain", layer: layer_PNOASpain_0, radioGroup: 'bm' },]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
